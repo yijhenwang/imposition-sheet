@@ -1,0 +1,10 @@
+# 實際書籍的落版檔與規格只留在本機，不上傳
+SPEC.md
+ref/
+data/*.imposition.json
+!data/空白書冊.imposition.json
+!data/範例_家常料理.imposition.json
+.claude/
+.playwright-mcp/
+.DS_Store
+skills-lock.json

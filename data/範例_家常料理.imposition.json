@@ -1,0 +1,440 @@
+{
+ "version": 1,
+ "book": {
+  "title": "家常料理（範例）",
+  "trimWidth": 170,
+  "trimHeight": 230,
+  "binding": "sewn-perfect",
+  "readingDirection": "ltr",
+  "pagesPerSignature": 16
+ },
+ "extras": {
+  "show": true,
+  "frontEndpapers": 2,
+  "backEndpapers": 2
+ },
+ "groups": [
+  {
+   "id": "g1",
+   "name": "書名頁",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g2",
+   "name": "版權頁",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g3",
+   "name": "目次",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g4",
+   "name": "作者序",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g5",
+   "name": "基本功",
+   "isChapterOpener": true
+  },
+  {
+   "id": "g6",
+   "name": "選鍋具",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g7",
+   "name": "火候",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g8",
+   "name": "刀工",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g9",
+   "name": "家常菜",
+   "isChapterOpener": true
+  },
+  {
+   "id": "g10",
+   "name": "番茄炒蛋",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g11",
+   "name": "滷肉",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g12",
+   "name": "炒青菜",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g13",
+   "name": "宴客菜",
+   "isChapterOpener": true
+  },
+  {
+   "id": "g14",
+   "name": "佛跳牆",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g15",
+   "name": "糖醋魚",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g16",
+   "name": "八寶飯",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g17",
+   "name": "附錄：常用食材對照表",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g18",
+   "name": "誌謝",
+   "isChapterOpener": false
+  },
+  {
+   "id": "g19",
+   "name": "空白頁",
+   "isChapterOpener": false
+  }
+ ],
+ "pages": [
+  {
+   "id": "p1",
+   "groupId": "g1",
+   "content": ""
+  },
+  {
+   "id": "p2",
+   "groupId": "g2",
+   "content": ""
+  },
+  {
+   "id": "p3",
+   "groupId": "g3",
+   "content": ""
+  },
+  {
+   "id": "p4",
+   "groupId": "g3",
+   "content": ""
+  },
+  {
+   "id": "p5",
+   "groupId": "g4",
+   "content": "作者照片一張，直式"
+  },
+  {
+   "id": "p6",
+   "groupId": "g4",
+   "content": ""
+  },
+  {
+   "id": "p7",
+   "groupId": "g5",
+   "content": "章名頁跨頁大圖：廚房全景"
+  },
+  {
+   "id": "p8",
+   "groupId": "g5",
+   "content": ""
+  },
+  {
+   "id": "p9",
+   "groupId": "g6",
+   "content": "鍋具排列俯拍"
+  },
+  {
+   "id": "p10",
+   "groupId": "g6",
+   "content": ""
+  },
+  {
+   "id": "p11",
+   "groupId": "g6",
+   "content": ""
+  },
+  {
+   "id": "p12",
+   "groupId": "g6",
+   "content": ""
+  },
+  {
+   "id": "p13",
+   "groupId": "g7",
+   "content": ""
+  },
+  {
+   "id": "p14",
+   "groupId": "g7",
+   "content": ""
+  },
+  {
+   "id": "p15",
+   "groupId": "g7",
+   "content": ""
+  },
+  {
+   "id": "p16",
+   "groupId": "g7",
+   "content": ""
+  },
+  {
+   "id": "p17",
+   "groupId": "g8",
+   "content": "步驟圖 6 張"
+  },
+  {
+   "id": "p18",
+   "groupId": "g8",
+   "content": ""
+  },
+  {
+   "id": "p19",
+   "groupId": "g8",
+   "content": ""
+  },
+  {
+   "id": "p20",
+   "groupId": "g8",
+   "content": ""
+  },
+  {
+   "id": "p21",
+   "groupId": "g8",
+   "content": ""
+  },
+  {
+   "id": "p22",
+   "groupId": "g8",
+   "content": ""
+  },
+  {
+   "id": "p23",
+   "groupId": "g9",
+   "content": "章名頁跨頁大圖：餐桌"
+  },
+  {
+   "id": "p24",
+   "groupId": "g9",
+   "content": ""
+  },
+  {
+   "id": "p25",
+   "groupId": "g10",
+   "content": "成品圖＋步驟圖"
+  },
+  {
+   "id": "p26",
+   "groupId": "g10",
+   "content": ""
+  },
+  {
+   "id": "p27",
+   "groupId": "g10",
+   "content": ""
+  },
+  {
+   "id": "p28",
+   "groupId": "g10",
+   "content": ""
+  },
+  {
+   "id": "p29",
+   "groupId": "g11",
+   "content": ""
+  },
+  {
+   "id": "p30",
+   "groupId": "g11",
+   "content": ""
+  },
+  {
+   "id": "p31",
+   "groupId": "g11",
+   "content": ""
+  },
+  {
+   "id": "p32",
+   "groupId": "g11",
+   "content": ""
+  },
+  {
+   "id": "p33",
+   "groupId": "g11",
+   "content": ""
+  },
+  {
+   "id": "p34",
+   "groupId": "g11",
+   "content": ""
+  },
+  {
+   "id": "p35",
+   "groupId": "g12",
+   "content": ""
+  },
+  {
+   "id": "p36",
+   "groupId": "g12",
+   "content": ""
+  },
+  {
+   "id": "p37",
+   "groupId": "g12",
+   "content": ""
+  },
+  {
+   "id": "p38",
+   "groupId": "g12",
+   "content": ""
+  },
+  {
+   "id": "p39",
+   "groupId": "g13",
+   "content": "章名頁跨頁大圖：宴席"
+  },
+  {
+   "id": "p40",
+   "groupId": "g13",
+   "content": ""
+  },
+  {
+   "id": "p41",
+   "groupId": "g14",
+   "content": "跨頁大圖，注意裝訂邊"
+  },
+  {
+   "id": "p42",
+   "groupId": "g14",
+   "content": ""
+  },
+  {
+   "id": "p43",
+   "groupId": "g14",
+   "content": ""
+  },
+  {
+   "id": "p44",
+   "groupId": "g14",
+   "content": ""
+  },
+  {
+   "id": "p45",
+   "groupId": "g14",
+   "content": ""
+  },
+  {
+   "id": "p46",
+   "groupId": "g14",
+   "content": ""
+  },
+  {
+   "id": "p47",
+   "groupId": "g14",
+   "content": ""
+  },
+  {
+   "id": "p48",
+   "groupId": "g14",
+   "content": ""
+  },
+  {
+   "id": "p49",
+   "groupId": "g15",
+   "content": ""
+  },
+  {
+   "id": "p50",
+   "groupId": "g15",
+   "content": ""
+  },
+  {
+   "id": "p51",
+   "groupId": "g15",
+   "content": ""
+  },
+  {
+   "id": "p52",
+   "groupId": "g15",
+   "content": ""
+  },
+  {
+   "id": "p53",
+   "groupId": "g15",
+   "content": ""
+  },
+  {
+   "id": "p54",
+   "groupId": "g15",
+   "content": ""
+  },
+  {
+   "id": "p55",
+   "groupId": "g16",
+   "content": ""
+  },
+  {
+   "id": "p56",
+   "groupId": "g16",
+   "content": ""
+  },
+  {
+   "id": "p57",
+   "groupId": "g16",
+   "content": ""
+  },
+  {
+   "id": "p58",
+   "groupId": "g16",
+   "content": ""
+  },
+  {
+   "id": "p59",
+   "groupId": "g17",
+   "content": ""
+  },
+  {
+   "id": "p60",
+   "groupId": "g17",
+   "content": ""
+  },
+  {
+   "id": "p61",
+   "groupId": "g17",
+   "content": ""
+  },
+  {
+   "id": "p62",
+   "groupId": "g17",
+   "content": ""
+  },
+  {
+   "id": "p63",
+   "groupId": "g18",
+   "content": ""
+  },
+  {
+   "id": "p64",
+   "groupId": "g19",
+   "content": ""
+  }
+ ],
+ "spreads": [],
+ "meta": {
+  "version": 1,
+  "basedOn": null
+ }
+}

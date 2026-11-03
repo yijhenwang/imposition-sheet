@@ -1,0 +1,185 @@
+{
+ "version": 1,
+ "book": {
+  "title": "未命名書冊",
+  "trimWidth": 148,
+  "trimHeight": 210,
+  "binding": "sewn-perfect",
+  "readingDirection": "ltr",
+  "pagesPerSignature": 16
+ },
+ "extras": {
+  "show": false,
+  "frontEndpapers": 2,
+  "backEndpapers": 2
+ },
+ "groups": [
+  {
+   "id": "sg1",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg2",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg3",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg4",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg5",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg6",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg7",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg8",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg9",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg10",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg11",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg12",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg13",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg14",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg15",
+   "name": "",
+   "isChapterOpener": false
+  },
+  {
+   "id": "sg16",
+   "name": "",
+   "isChapterOpener": false
+  }
+ ],
+ "pages": [
+  {
+   "id": "s1",
+   "groupId": "sg1",
+   "content": ""
+  },
+  {
+   "id": "s2",
+   "groupId": "sg2",
+   "content": ""
+  },
+  {
+   "id": "s3",
+   "groupId": "sg3",
+   "content": ""
+  },
+  {
+   "id": "s4",
+   "groupId": "sg4",
+   "content": ""
+  },
+  {
+   "id": "s5",
+   "groupId": "sg5",
+   "content": ""
+  },
+  {
+   "id": "s6",
+   "groupId": "sg6",
+   "content": ""
+  },
+  {
+   "id": "s7",
+   "groupId": "sg7",
+   "content": ""
+  },
+  {
+   "id": "s8",
+   "groupId": "sg8",
+   "content": ""
+  },
+  {
+   "id": "s9",
+   "groupId": "sg9",
+   "content": ""
+  },
+  {
+   "id": "s10",
+   "groupId": "sg10",
+   "content": ""
+  },
+  {
+   "id": "s11",
+   "groupId": "sg11",
+   "content": ""
+  },
+  {
+   "id": "s12",
+   "groupId": "sg12",
+   "content": ""
+  },
+  {
+   "id": "s13",
+   "groupId": "sg13",
+   "content": ""
+  },
+  {
+   "id": "s14",
+   "groupId": "sg14",
+   "content": ""
+  },
+  {
+   "id": "s15",
+   "groupId": "sg15",
+   "content": ""
+  },
+  {
+   "id": "s16",
+   "groupId": "sg16",
+   "content": ""
+  }
+ ],
+ "spreads": [],
+ "meta": {
+  "version": 1,
+  "basedOn": null
+ }
+}

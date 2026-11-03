@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>落版單</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2316181d'/%3E%3Cpath d='M20 16H36L44 24V48H20Z' fill='%23fff'/%3E%3Cpath d='M36 16V24H44Z' fill='%23a5b4fc'/%3E%3Cpath d='M11 16H15.5M20 7V11.5M48.5 16H53M44 7V11.5M11 48H15.5M20 52.5V57M48.5 48H53M44 52.5V57' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" type="image/svg+xml">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAABLElEQVR4nOyWS4rCQBCGO0m7DKOjzAtn9uMFRE8igiB6BJ8LUXEligdwoSgB8QCKNxC8gO7diKCgBNRFEmwQNIpWhYQgQv5FQai/+yOdVFXTj69fYqd4YrNsB1Agl82kWKzVG1Y8EMDv/yGYUA8EUFWNYEI9HPAXBQL/LE6nM2A96rkC8DyfTMTd7jdFUSSpt1qviTH5vN5YLEop3Wy2rXZH0y6vdXVEgiCEw6ETYDAcMcByMb+7Y7M7LuYj50fPu4ctPAE6XUkP4OBCewToDVV5NdEzHsl8HYi+YKXaR22WCs0Iw+QR6fX5/QdkX78XOQAH4ABu2vUT5gHcZ84yOQ9EUWRRlmVga9QDDf1yqcBiKp2z4oEALheUNeiB0vvdgWBCPbZ/A+7lb9dHAAAA//8mY3Z/AAAABklEQVQDAJ4SiepewaKDAAAAAElFTkSuQmCC" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<style>
+/* 視覺風格：淺灰底 + 白色圓角卡片（參考 Plain 的版面切割） */
+:root {
+  --bg: #faf9f7; --panel: #ffffff; --fg: #1b1a17; --muted: #8b857c; --border: #ebe8e2;
+  --accent: #272e42; --accent-fg: #ffffff; --soft: #f5f3ef;
+  --page: #ffffff; --page-extra: #f7f5f1; --sig-b: #faf8f5;
+  --ok: #3f7d58; --warn: #a8690f; --danger: #b3453a; --shade: rgba(39,46,66,.09);
+  --sel: #f0f1f6; --sel-border: #b9bed2; --ring: #b9bed2; --ring-soft: rgba(39,46,66,.12);
+  --shadow: 0 1px 2px rgba(28,25,23,.05), 0 1px 10px rgba(28,25,23,.03);
+  --radius: 9px; --page-radius: 5px;
+  --font: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --page-font: var(--font);
+  --gap: 26px 18px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--bg); color: var(--fg); font: 13.5px/1.55 var(--font); }
+button, select, input, textarea { font: inherit; color: inherit; }
+.spacer { flex: 1; }
+.hint { font-size: 12px; color: var(--muted); }
+kbd { font: 11px/1 var(--font); border: 1px solid var(--border); border-radius: 4px; padding: 3px 5px; background: var(--soft); color: var(--muted); }
+
+/* 卡片式版面 */
+.app { height: 100%; padding: 12px; display: grid; grid-template-rows: auto 1fr; gap: 12px; }
+.card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; min-height: 0; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow); }
+.main { display: grid; grid-template-columns: 264px 1fr 324px; gap: 12px; min-height: 0; }
+.card-head { display: flex; align-items: center; gap: 8px; padding: 14px 18px 10px; }
+.card-head.sep { border-top: 1px solid var(--border); margin-top: 4px; }
+.card-head h2 { font-size: 11px; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.card-body { padding: 2px 18px 18px; }
+.card-scroll { overflow: auto; padding: 2px 18px 26px; min-height: 0; }
+
+/* 頂部 */
+.topbar { flex-direction: row; align-items: center; gap: 12px; padding: 12px 18px; }
+.brand { display: flex; align-items: center; gap: 11px; }
+.mark { width: 30px; height: 30px; display: block; flex: none; }
+.topbar h1 { font-size: 16px; font-weight: 600; margin: 0; letter-spacing: -.01em; }
+.topbar .sub { color: var(--muted); font-size: 12px; }
+
+/* 標籤—數值列 */
+.kv { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 32px; }
+.kv .k { color: var(--muted); font-size: 11px; white-space: nowrap; text-transform: uppercase; letter-spacing: .04em; }
+.kv .v { font-size: 13px; font-variant-numeric: tabular-nums; }
+.kv select, .kv input[type="range"] { width: 130px; }
+
+/* 大數字（參考截圖的指標卡） */
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 2px 0 12px; }
+.stat { border: 1px solid var(--border); border-radius: 11px; padding: 10px 12px; background: var(--panel); }
+.stat .k { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; display: block; margin-bottom: 3px; }
+.stat .n { font-size: 25px; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.stat .u { font-size: 12px; color: var(--muted); margin-inline-start: 3px; font-weight: 400; }
+.chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--border); background: var(--soft); color: var(--muted); }
+.chip.ok { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 25%, var(--border)); background: color-mix(in srgb, var(--ok) 6%, #fff); }
+.chip.warn { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 25%, var(--border)); background: color-mix(in srgb, var(--warn) 6%, #fff); }
+
+/* 控制項 */
+.seg { display: inline-flex; background: var(--soft); border: 1px solid var(--border); border-radius: 999px; padding: 2px; gap: 2px; }
+.seg button { border: 0; background: transparent; padding: 3px 12px; border-radius: 999px; cursor: pointer; color: var(--muted); font-size: 12.5px; }
+.seg button[aria-pressed="true"] { background: var(--panel); color: var(--fg); box-shadow: 0 1px 2px rgba(16,24,40,.08); }
+select, input[type="text"], textarea { width: 100%; border: 1px solid var(--border); background: var(--panel); border-radius: 9px; padding: 6px 10px; outline: none; font-size: 12.5px; }
+textarea { resize: vertical; min-height: 84px; }
+select:focus, input:focus, textarea:focus { border-color: var(--ring); box-shadow: 0 0 0 3px var(--ring-soft); }
+.btn { border: 1px solid var(--border); background: var(--panel); border-radius: 9px; padding: 6px 12px; cursor: pointer; font-size: 12.5px; display: inline-flex; align-items: center; gap: 6px; justify-content: center; box-shadow: 0 1px 1px rgba(28,25,23,.04); }
+.btn:hover { background: var(--soft); }
+.btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.btn.primary:hover { background: #333c54; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn.danger { color: var(--danger); border-color: color-mix(in srgb, var(--danger) 30%, var(--border)); }
+.btn.danger:hover { background: color-mix(in srgb, var(--danger) 7%, transparent); }
+.btn.block { width: 100%; }
+.btns { display: flex; gap: 6px; }
+.btns .btn { flex: 1; }
+.field { display: grid; gap: 6px; margin: 14px 0; }
+.field > label, .field > .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.switch { position: relative; width: 34px; height: 20px; flex: none; }
+.switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+.switch span { position: absolute; inset: 0; background: var(--border); border-radius: 999px; transition: .15s; cursor: pointer; }
+.switch span::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: .15s; box-shadow: 0 1px 2px rgba(16,24,40,.2); }
+.switch input:checked + span { background: var(--accent); }
+.switch input:checked + span::after { transform: translateX(14px); }
+input[type="range"] { accent-color: var(--accent); }
+.empty { color: var(--muted); font-size: 12.5px; padding: 18px; border: 1px dashed var(--border); border-radius: 10px; text-align: center; margin-top: 12px; }
+.meta { display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0; }
+.tag { font-size: 11.5px; padding: 2px 9px; border-radius: 999px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); }
+.ok { color: var(--ok); } .warn { color: var(--warn); }
+
+/* 落版區 */
+.grid { display: flex; flex-wrap: wrap; gap: var(--gap); align-items: flex-end; }
+.grid.rtl { flex-direction: row-reverse; }
+.spread { position: relative; display: flex; }
+.slot { width: var(--pw); height: var(--ph); }
+.spread-label { position: absolute; top: -20px; left: 0; right: 0; font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; pointer-events: none; }
+
+.page { position: relative; width: var(--pw); height: var(--ph); background: var(--page); border: 1px solid var(--border); border-radius: var(--page-radius); padding: 8px; display: flex; flex-direction: column; gap: 6px; cursor: pointer; overflow: hidden; font-family: var(--page-font); }
+.page.sig-odd { background: var(--sig-b); }
+.page:hover { border-color: var(--muted); }
+.page.in-group { background: var(--sel); }
+.page.selected { background: var(--sel); outline: 2px solid var(--sel-border); outline-offset: -1px; z-index: 2; }
+.spread .slot + .slot .page { border-inline-start-color: transparent; }
+.gutter { position: absolute; top: 0; bottom: 0; pointer-events: none; }
+
+.folio { display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; font-family: var(--font); }
+.sig-chip { font-size: 10px; padding: 1px 6px; border-radius: 5px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); }
+.sec { border: 1px solid var(--border); border-radius: 6px; padding: 3px 6px; font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: var(--panel); }
+.sec.cont { color: var(--muted); font-weight: 400; }
+.ch-no { color: var(--accent); margin-inline-end: 4px; }
+.cnt { flex: 1; border: 1px solid var(--border); border-radius: 6px; padding: 5px 6px; font-size: 11.5px; line-height: 1.5; color: var(--fg); overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6; background: var(--page); }
+.cnt:empty::before { content: "—"; color: var(--border); }
+.page.chapter .sec { border-color: var(--accent); }
+
+.page.extra { background: var(--page-extra); border-style: dashed; }
+.page.extra .folio { color: var(--fg); font-weight: 600; }
+.page.extra .note { font-size: 11px; color: var(--warn); }
+
+.spine-zone { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); pointer-events: none; z-index: 3;
+  background: repeating-linear-gradient(45deg, color-mix(in srgb, var(--danger) 22%, transparent) 0 4px, transparent 4px 8px);
+  border-inline: 1px dashed var(--danger); display: flex; align-items: center; justify-content: center; }
+.spine-zone span { writing-mode: vertical-rl; font-size: 10px; color: var(--danger); background: var(--page); padding: 4px 1px; font-family: var(--font); }
+.spread-tag { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); font-size: 11px; color: var(--danger); white-space: nowrap; }
+
+
+.btn.danger { color: var(--danger); border-color: color-mix(in srgb, var(--danger) 35%, var(--border)); }
+.btn.danger:hover { background: color-mix(in srgb, var(--danger) 8%, transparent); }
+.status .btn { padding: 3px 10px; }
+
+/* 點擊修改的數字 */
+.editable { border: 1px solid transparent; background: transparent; border-radius: 6px; padding: 2px 8px; cursor: text; font-size: 12.5px; font-variant-numeric: tabular-nums; display: inline-flex; gap: 3px; align-items: baseline; }
+.editable:hover { border-color: var(--border); background: var(--soft); }
+.editable { text-decoration: underline dotted var(--muted); text-underline-offset: 4px; }
+.editable:hover { text-decoration: none; }
+.editable .unit { color: var(--muted); font-size: 12px; }
+.editable-input { width: 84px !important; text-align: right; padding: 3px 8px !important; font-variant-numeric: tabular-nums; }
+
+/* 拖曳 */
+.page[draggable="true"] { cursor: grab; }
+.page.dragging { opacity: .35; }
+.page.drop-before::before, .page.drop-after::before { content: ""; position: absolute; top: -6px; bottom: -6px; width: 3px; background: var(--accent); border-radius: 2px; z-index: 5; }
+.page.drop-before::before { left: -2px; }
+.page.drop-after::before { right: -2px; }
+.grid.rtl .page.drop-before::before { left: auto; right: -2px; }
+.grid.rtl .page.drop-after::before { right: auto; left: -2px; }
+.page { overflow: visible; }
+.page > .cnt, .page > .sec { overflow: hidden; }
+
+/* 輸出 PDF（瀏覽器列印） */
+#print { display: none; }
+@media print {
+  @page { size: A3 landscape; margin: 10mm 10mm 14mm; }
+  .app, .toast { display: none !important; }
+  #print { display: block; color: #000; }
+  body { background: #fff; }
+  .p-head { border-bottom: 1px solid #999; padding-bottom: 6px; margin-bottom: 10px; }
+  .p-head h1 { font-size: 15px; margin: 0 0 3px; }
+  .p-head .p-spec { font-size: 10px; color: #333; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .p-foot { position: fixed; bottom: -10mm; left: 0; right: 0; font-size: 9px; color: #555; display: flex; justify-content: space-between; }
+  .p-sec { font-size: 11px; font-weight: 600; margin: 14px 0 8px; page-break-after: avoid; }
+  #print .grid { gap: 12mm 8mm; }
+  #print .spread { page-break-inside: avoid; }
+  #print .page { box-shadow: none; }
+  /* 瀏覽器預設不印背景色，所以禁區改用虛線標出範圍 */
+  #print .gutter { background: none !important; border-inline: 1px dashed #d0a0a0; }
+  #print .page.sig-odd { background: none; }
+  #print .page.selected, #print .page.in-group { background: #fff; outline: none; }
+  #print .folio { font-size: 8px; }
+  #print .sec { font-size: 8px; padding: 2px 4px; }
+  #print .cnt { font-size: 7.5px; -webkit-line-clamp: 8; }
+  #print .sig-chip { font-size: 7px; }
+  #print .spine-zone span { font-size: 7px; }
+  #print .spread-tag { font-size: 7px; }
+  .p-list { width: 100%; border-collapse: collapse; font-size: 9px; }
+  .p-list th, .p-list td { border: 1px solid #bbb; padding: 3px 5px; text-align: left; vertical-align: top; }
+  .p-list th { background: #eee; font-weight: 600; }
+  .p-list td.num { width: 34px; text-align: right; font-variant-numeric: tabular-nums; }
+  .p-list td.sec-col { width: 130px; }
+  .p-list tr { page-break-inside: avoid; }
+  .p-warn { font-size: 10px; }
+  .p-warn li { margin-bottom: 3px; }
+  .p-break { page-break-before: always; }
+}
+
+.toast { position: fixed; bottom: 52px; left: 50%; transform: translateX(-50%); background: var(--fg); color: var(--bg); padding: 8px 14px; border-radius: var(--radius); font-size: 13px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+.toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="card topbar">
+    <div class="brand">
+      <img class="mark" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' role='img' aria-label='%E8%90%BD%E7%89%88%E5%96%AE'%3E%3Crect width='64' height='64' fill='%2316181d'/%3E%3Cpath d='M20 16H36L44 24V48H20Z' fill='%23fff'/%3E%3Cpath d='M36 16V24H44Z' fill='%23a5b4fc'/%3E%3Cpath d='M12 16H16M20 8V12M48 16H52M44 8V12M12 48H16M20 52V56M48 48H52M44 52V56' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E" alt="" width="30" height="30">
+      <div>
+        <h1 id="title">落版單</h1>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <span class="hint" id="savedAt"></span>
+    <button class="btn" id="undo">復原 <kbd>⌘Z</kbd></button>
+    <button class="btn" id="btnSample">載入範例</button>
+    <button class="btn" id="btnImport">匯入落版檔</button>
+    <input type="file" id="fileInput" accept=".json,application/json" hidden>
+    <button class="btn" id="btnExport">匯出落版檔</button>
+    <button class="btn primary" id="btnPdf">輸出 PDF</button>
+  </header>
+
+  <div class="main">
+    <aside class="card nav" aria-label="書冊設定（全書共用）">
+      <div class="card-head"><h2>書冊設定</h2><span class="hint">全書共用</span></div>
+      <div class="card-body">
+        <div class="kv"><span class="k">開本（寬 × 高）</span><span id="trim"></span></div>
+        <div class="kv"><span class="k">翻向</span>
+          <div class="seg" id="dirSeg"><button data-v="ltr">左翻</button><button data-v="rtl">右翻</button></div>
+        </div>
+        <div class="kv"><label class="k" for="binding">裝訂</label><select id="binding"></select></div>
+        <div class="kv"><span class="k">內側禁區（單邊）</span><span id="gutterHint"></span></div>
+        <div class="kv"><span class="k">外封與蝴蝶頁</span>
+          <label class="switch"><input type="checkbox" id="extras"><span></span></label>
+        </div>
+        <div class="kv"><label class="k" for="zoom">縮放</label><input type="range" id="zoom" min="0.45" max="1.2" step="0.05"></div>
+      </div>
+      <div class="card-head sep"><h2>目前狀態</h2></div>
+      <div class="card-body" id="status"></div>
+    </aside>
+
+    <main class="card board">
+      <div class="card-head">
+        <h2 id="boardTitle">落版</h2>
+        <span class="spacer"></span>
+      </div>
+      <div class="card-scroll"><div class="grid" id="grid"></div></div>
+    </main>
+
+    <aside class="card side">
+      <div class="card-head"><h2>頁面</h2><span class="hint">只影響選取的頁面</span></div>
+      <div class="card-scroll"><section id="detail"></section></div>
+    </aside>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<div id="print"></div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const SAMPLE = /*__SAMPLE__*/null;
+
+const BINDINGS = {
+  "saddle":       { name: "騎馬釘", gutter: 3 },
+  "layflat":      { name: "裸背穿線", gutter: 5 },
+  "sewn-perfect": { name: "穿線膠裝", gutter: 8 },
+  "perfect":      { name: "無線膠裝", gutter: 12 },
+  "hardcover":    { name: "精裝", gutter: 10 },
+  "wire":         { name: "線圈裝", gutter: 10 },
+};
+
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+};
+
+const DOC_KEY = "lb.doc";
+const blank = () => ({ ...structuredClone(DATA), meta: { version: 1, basedOn: null } });
+function loadSaved() {
+  try {
+    const raw = store.get(DOC_KEY);
+    if (!raw) return null;
+    const d = JSON.parse(raw);
+    return d && Array.isArray(d.pages) && d.pages.length ? d : null;
+  } catch { return null; }
+}
+const state = {
+  ...(loadSaved() || blank()),
+  selected: null,
+  zoom: Number(store.get("lb.zoom")) || 0.75,
+};
+state.meta ||= { version: 1, basedOn: null };
+const groupById = () => Object.fromEntries(state.groups.map(g => [g.id, g]));
+
+// 依頁面順序算出群組順序與章號
+function chapterNumbers() {
+  const seen = new Set(), no = {};
+  let n = 0;
+  for (const p of state.pages) {
+    if (seen.has(p.groupId)) continue;
+    seen.add(p.groupId);
+    const g = groupById()[p.groupId];
+    if (g.isChapterOpener) no[g.id] = ++n;
+  }
+  return no;
+}
+
+// 把外封、蝴蝶頁、內頁排成一列，再兩兩配對成跨頁
+function buildItems() {
+  const items = [];
+  const ex = state.extras.show;
+  if (ex) {
+    items.push({ kind: "extra", key: "cover", label: "封面", tip: "書的正面" });
+    items.push({ kind: "extra", key: "insideCover", label: "封面裡", tip: "翻開封面後，封面背面這一面" });
+    for (let i = 1; i <= state.extras.frontEndpapers; i++) items.push({ kind: "extra", key: "fe" + i, label: "前蝴蝶 " + i, tip: "封面和內頁之間的蝴蝶頁，不算頁數" });
+  }
+  state.pages.forEach((p, i) => items.push({ kind: "page", page: p, folio: i + 1 }));
+  if (ex) {
+    for (let i = 1; i <= state.extras.backEndpapers; i++) items.push({ kind: "extra", key: "be" + i, label: "後蝴蝶 " + i, tip: "內頁和封底之間的蝴蝶頁，不算頁數" });
+    items.push({ kind: "extra", key: "insideBackCover", label: "封底裡", tip: "封底的背面，闔上書前最後看到的一面" });
+    items.push({ kind: "extra", key: "backCover", label: "封底", tip: "書的背面" });
+  }
+  // 第一個單獨在右（左翻），之後兩兩一組
+  const spreads = [[null, items[0]]];
+  for (let i = 1; i < items.length; i += 2) spreads.push([items[i], items[i + 1] || null]);
+  return spreads;
+}
+
+function isDesignatedSpread(a, b) {
+  if (!a || !b || a.kind !== "page" || b.kind !== "page") return false;
+  return state.spreads.some(([l, r]) => l === a.page.id && r === b.page.id);
+}
+
+// 移動後檢查跨頁是否還並排，不是就自動解除
+function validateSpreads() {
+  const idx = Object.fromEntries(state.pages.map((p, i) => [p.id, i + 1]));
+  const before = state.spreads.length;
+  state.spreads = state.spreads.filter(([l, r]) => idx[r] === idx[l] + 1 && idx[l] % 2 === 0);
+  if (state.spreads.length < before) toast("有跨頁因為順序改變不再並排，已自動解除");
+}
+
+function render() {
+  const b = state.book;
+  document.getElementById("title").textContent = b.title;
+  document.getElementById("trim").innerHTML =
+    `${editable("trimW", b.trimWidth, "")}<span class="hint">×</span>${editable("trimH", b.trimHeight, "mm")}`;
+  for (const btn of document.querySelectorAll("#dirSeg button")) btn.setAttribute("aria-pressed", btn.dataset.v === b.readingDirection);
+  document.getElementById("binding").value = b.binding;
+  document.getElementById("gutterHint").innerHTML = editable("gutter", gutterOf(), "mm")
+    + (state.book.gutterOverrides?.[b.binding] != null ? ` <span class="hint">已修改</span>` : "");
+  document.getElementById("extras").checked = state.extras.show;
+  document.getElementById("zoom").value = state.zoom;
+
+  const rtl = b.readingDirection === "rtl";
+  const pw = b.trimWidth * state.zoom, ph = b.trimHeight * state.zoom;
+  const gw = gutterOf() * state.zoom;
+  const grid = document.getElementById("grid");
+  grid.classList.toggle("rtl", rtl);
+  grid.style.setProperty("--pw", pw + "px");
+  grid.style.setProperty("--ph", ph + "px");
+
+  const chNo = chapterNumbers();
+  const groups = groupById();
+  const pps = b.pagesPerSignature;
+  const selGroup = state.selected && state.pages.find(p => p.id === state.selected)?.groupId;
+
+  grid.innerHTML = "";
+  for (const pair of buildItems()) {
+    const el = document.createElement("div");
+    el.className = "spread";
+    const slots = rtl ? [pair[1], pair[0]] : pair;
+    // pos 0 = 畫面左邊。裝訂邊在兩頁中間
+    slots.forEach((it, pos) => {
+      const slot = document.createElement("div");
+      slot.className = "slot";
+      if (it) slot.appendChild(renderPage(it, pos === 0 ? "right" : "left"));
+      el.appendChild(slot);
+    });
+    function renderPage(it, spineSide) {
+      const d = document.createElement("div");
+      if (it.kind === "extra") {
+        d.className = "page extra";
+        d.title = it.tip;
+        const hidden = b.binding === "hardcover" && (it.key === "insideCover" || it.key === "insideBackCover");
+        d.innerHTML = `<div class="folio">${it.label}<span class="hint">不計頁數</span></div>
+          <div class="cnt" style="-webkit-line-clamp:3">${it.tip}</div>${hidden ? `<div class="note">精裝時通常被蝴蝶頁蓋住</div>` : ""}`;
+      } else {
+        const p = it.page, g = groups[p.groupId];
+        const sig = Math.floor((it.folio - 1) / pps);
+        const cont = it.folio > 1 && state.pages[it.folio - 2].groupId === p.groupId;
+        d.className = "page" + (sig % 2 ? " sig-odd" : "") + (g.isChapterOpener ? " chapter" : "")
+          + (state.selected === p.id ? " selected" : selGroup === p.groupId ? " in-group" : "");
+        d.dataset.id = p.id;
+        d.draggable = true;
+        const chip = (it.folio - 1) % pps === 0 ? `<span class="sig-chip">台 ${sig + 1}</span>` : "";
+        const no = chNo[g.id] ? `<span class="ch-no">Ch${chNo[g.id]}</span>` : "";
+        d.innerHTML = `<div class="folio"><span>${it.folio}</span>${chip}</div>
+          <div class="sec${cont ? " cont" : ""}">${no}${esc(g.name)}</div>
+          <div class="cnt">${esc(p.content)}</div>`;
+        d.onclick = () => { state.selected = p.id; render(); };
+      }
+      const gut = document.createElement("div");
+      gut.className = "gutter";
+      gut.style[spineSide] = "0";
+      gut.style.width = gw + "px";
+      gut.style.background = `linear-gradient(to ${spineSide}, transparent, var(--shade))`;
+      d.appendChild(gut);
+      return d;
+    }
+    if (isDesignatedSpread(pair[0], pair[1])) {
+      const z = document.createElement("div");
+      z.className = "spine-zone";
+      z.style.width = gw * 2 + "px";
+      z.innerHTML = "<span>勿放重要文字或圖片細節</span>";
+      el.appendChild(z);
+      const crosses = Math.floor((pair[0].folio - 1) / pps) !== Math.floor((pair[1].folio - 1) / pps);
+      const t = document.createElement("div");
+      t.className = "spread-tag";
+      t.textContent = crosses ? "⚠ 跨頁（跨台）" : "跨頁";
+      el.appendChild(t);
+    }
+    grid.appendChild(el);
+  }
+  renderDetail(chNo);
+  renderStatus();
+  showSavedAt();
+  autoSave();
+}
+
+function renderDetail(chNo) {
+  const box = document.getElementById("detail");
+  const i = state.pages.findIndex(p => p.id === state.selected);
+  if (i < 0) { box.innerHTML = `<div class="empty">點一下頁面，在這裡編輯內容</div>`; return; }
+  const p = state.pages[i], g = groupById()[p.groupId];
+  const gp = state.pages.filter(x => x.groupId === g.id);
+  const first = state.pages.indexOf(gp[0]) + 1;
+  const order = [...new Set(state.pages.map(x => x.groupId))];
+  const gi = order.indexOf(g.id);
+  const pps = state.book.pagesPerSignature;
+  box.innerHTML = `<div class="meta">
+      <span class="tag">第 ${i + 1} 頁</span>
+      <span class="tag">台 ${Math.floor(i / pps) + 1}</span>
+      <span class="tag">群組第 ${first}–${first + gp.length - 1} 頁</span>
+      ${chNo[g.id] ? `<span class="tag">Ch${chNo[g.id]}</span>` : ""}
+    </div>
+    <div class="field"><label for="fSec">第一層：區塊（整個群組）</label><input type="text" id="fSec"></div>
+    <div class="field"><label for="fCnt">第二層：內容（這一頁）</label><textarea id="fCnt"></textarea></div>
+    <div class="kv" style="margin:14px 0"><span class="k">章名頁（自動編 Ch 號）</span><label class="switch"><input type="checkbox" id="fCh"><span></span></label></div>
+    <div class="kv" style="margin:14px 0 2px"><span class="k">這一段的頁數</span>${editable("groupLen", gp.length, "頁")}</div>
+    <div class="hint">點數字修改；增加的頁會加在這一段最後，減少時從最後刪起</div>
+    <div class="field"><span class="label">這一頁</span>
+      <div class="btns"><button class="btn" id="insert">後面插入一頁</button><button class="btn" id="del">刪除</button></div>
+      <span class="hint">插入的空白頁會加入同一段；刪錯了可以按 ⌘Z 復原</span>
+    </div>
+    <div class="field"><span class="label">移動群組</span>
+      <div class="btns"><button class="btn" id="up">上移</button><button class="btn" id="down">下移</button></div>
+      <span class="hint">整個群組和前一個或後一個群組交換位置</span>
+    </div>
+    ${gp.length > 1 ? `<div class="field"><button class="btn" id="detach">移出群組</button>
+      <span class="hint">讓這一頁可以單獨拖曳，不再跟著「${esc(g.name)}」一起移動</span></div>` : ""}
+    <div class="field"><button class="btn danger" id="delGroup">刪除整段（${gp.length} 頁）</button></div>`;
+  const fSec = box.querySelector("#fSec"), fCnt = box.querySelector("#fCnt"), fCh = box.querySelector("#fCh");
+  fSec.value = g.name; fCnt.value = p.content; fCh.checked = g.isChapterOpener;
+  fSec.oninput = () => { g.name = fSec.value; renderKeepFocus("fSec"); };
+  fCnt.oninput = () => { p.content = fCnt.value; renderKeepFocus("fCnt"); };
+  fCh.onchange = () => { snapshot(); g.isChapterOpener = fCh.checked; render(); };
+  box.querySelector("#up").disabled = gi === 0;
+  box.querySelector("#down").disabled = gi === order.length - 1;
+  box.querySelector("#up").onclick = () => moveGroup(g.id, -1);
+  box.querySelector("#down").onclick = () => moveGroup(g.id, 1);
+  box.querySelector("#detach")?.addEventListener("click", () => detachPage(p.id));
+  box.querySelector("#insert").onclick = () => addPage(i, g.id);
+  box.querySelector("#del").onclick = () => removePages([p.id]);
+  box.querySelector("#delGroup").onclick = () => {
+    if (gp.length > 1 && !confirm(`要刪除「${g.name}」整段共 ${gp.length} 頁嗎？`)) return;
+    removePages(gp.map(x => x.id));
+  };
+}
+
+function renderKeepFocus(id) {
+  const el = document.getElementById(id), s = el.selectionStart, e = el.selectionEnd;
+  render();
+  const n = document.getElementById(id);
+  n.focus(); n.setSelectionRange(s, e);
+}
+
+function moveGroup(gid, dir) {
+  snapshot();
+  const order = [...new Set(state.pages.map(x => x.groupId))];
+  const i = order.indexOf(gid), j = i + dir;
+  [order[i], order[j]] = [order[j], order[i]];
+  const byGroup = {};
+  for (const p of state.pages) (byGroup[p.groupId] ||= []).push(p);
+  state.pages = order.flatMap(id => byGroup[id]);
+  validateSpreads();
+  render();
+}
+
+// ---------- 復原 ----------
+const undoStack = [];
+function snapshot() {
+  undoStack.push(JSON.stringify({ pages: state.pages, groups: state.groups, spreads: state.spreads, book: state.book, extras: state.extras, meta: state.meta }));
+  if (undoStack.length > 50) undoStack.shift();
+}
+function undo() {
+  const s = undoStack.pop();
+  if (!s) return toast("沒有可以復原的步驟");
+  Object.assign(state, JSON.parse(s));
+  render();
+}
+
+// ---------- 移出群組 ----------
+function detachPage(pid) {
+  snapshot();
+  const p = state.pages.find(x => x.id === pid), g = groupById()[p.groupId];
+  const ng = { id: "g" + Date.now().toString(36), name: g.name, isChapterOpener: false };
+  state.groups.push(ng);
+  // 移出中間的頁面時，群組後半段也要拆開，群組才會維持連續
+  const members = state.pages.filter(x => x.groupId === g.id);
+  const i = members.indexOf(p);
+  p.groupId = ng.id;
+  if (i > 0 && i < members.length - 1) {
+    const tail = { id: ng.id + "t", name: g.name, isChapterOpener: false };
+    state.groups.push(tail);
+    members.slice(i + 1).forEach(x => x.groupId = tail.id);
+    toast("已移出，原群組因為中間斷開而分成前後兩組");
+  } else toast("已移出群組，這一頁可以單獨拖曳");
+  render();
+}
+
+// ---------- 點擊後輸入數字 ----------
+// 同一個資訊只出現一次；能修改的就直接點數字改
+const gutterOf = () => state.book.gutterOverrides?.[state.book.binding] ?? BINDINGS[state.book.binding].gutter;
+function editable(key, value, unit) {
+  return `<button class="editable" data-edit="${key}" title="點一下修改">${value}<span class="unit">${unit}</span></button>`;
+}
+const EDITORS = {
+  pps: { min: 2, step: 2, set(v) {
+    v = Math.max(2, Math.round(v / 2) * 2);
+    if (v === state.book.pagesPerSignature) return;
+    state.book.pagesPerSignature = v;
+    toast(`一台改為 ${v} 頁`);
+  } },
+  trimW: { min: 50, step: 1, set(v) { state.book.trimWidth = Math.max(50, Math.round(v)); } },
+  trimH: { min: 50, step: 1, set(v) { state.book.trimHeight = Math.max(50, Math.round(v)); } },
+  gutter: { min: 0, step: 0.5, set(v) {
+    v = Math.max(0, v);
+    (state.book.gutterOverrides ||= {})[state.book.binding] = v;
+    if (v === BINDINGS[state.book.binding].gutter) delete state.book.gutterOverrides[state.book.binding];
+  } },
+  groupLen: { min: 1, step: 1, set(v) {
+    const p = state.pages.find(x => x.id === state.selected);
+    const gp = state.pages.filter(x => x.groupId === p.groupId);
+    v = Math.max(1, Math.round(v));
+    if (v > gp.length) addPage(state.pages.indexOf(gp[gp.length - 1]), p.groupId, v - gp.length, true);
+    else if (v < gp.length) {
+      const cut = gp.slice(v);
+      if (cut.length > 1 && !confirm(`要刪掉這一段最後 ${cut.length} 頁嗎？`)) return;
+      removePages(cut.map(x => x.id), p.id);
+    }
+  } },
+};
+document.addEventListener("click", e => {
+  const btn = e.target.closest(".editable");
+  if (!btn) return;
+  const ed = EDITORS[btn.dataset.edit];
+  const input = document.createElement("input");
+  input.type = "number"; input.min = ed.min; input.step = ed.step;
+  input.value = parseFloat(btn.textContent);
+  input.className = "editable-input";
+  btn.replaceWith(input);
+  input.focus(); input.select();
+  let done = false;
+  const finish = commit => {
+    if (done) return; done = true;
+    const v = Number(input.value);
+    if (commit && input.value !== "" && !Number.isNaN(v)) ed.set(v);
+    render();
+  };
+  input.addEventListener("keydown", k => { if (k.key === "Enter") finish(true); if (k.key === "Escape") finish(false); });
+  input.addEventListener("blur", () => finish(true));
+});
+
+// ---------- 新增與刪除頁面 ----------
+let seq = 0;
+function addPage(afterIndex, groupId, count = 1, keepSelection = false) {
+  snapshot();
+  const made = Array.from({ length: count }, () => ({ id: "n" + (++seq) + Date.now().toString(36), groupId, content: "" }));
+  if (groupId === undefined) {
+    // 加在書末，自成一段
+    const g = { id: "g" + Date.now().toString(36) + seq, name: "新頁面", isChapterOpener: false };
+    state.groups.push(g);
+    made.forEach(m => m.groupId = g.id);
+  }
+  state.pages.splice(afterIndex + 1, 0, ...made);
+  validateSpreads();
+  if (!keepSelection) state.selected = made[0].id;
+  render();
+  toast(keepSelection ? `這一段加了 ${count} 頁` : count === 1 ? `已新增第 ${afterIndex + 2} 頁` : `已在書末新增 ${count} 頁`);
+}
+
+function removePages(ids, keepId) {
+  snapshot();
+  const i = state.pages.findIndex(p => p.id === ids[0]);
+  state.pages = state.pages.filter(p => !ids.includes(p.id));
+  // 清掉沒有頁面的群組
+  const used = new Set(state.pages.map(p => p.groupId));
+  state.groups = state.groups.filter(g => used.has(g.id));
+  validateSpreads();
+  // 選回前一頁，刪掉一段的最後一頁時才不會跳到下一段
+  state.selected = keepId || (state.pages[i - 1] || state.pages[i] || {}).id || null;
+  render();
+  toast(`已刪除 ${ids.length} 頁，可按 ⌘Z 復原`);
+}
+
+// ---------- 拖曳 ----------
+// 拖曳單位是整個群組；放下位置對齊群組邊界，不會拆開別的群組
+let drag = null;
+const unitOf = pid => {
+  const gid = state.pages.find(p => p.id === pid).groupId;
+  const idx = state.pages.map((p, i) => p.groupId === gid ? i : -1).filter(i => i >= 0);
+  return { gid, start: idx[0], end: idx[idx.length - 1] };
+};
+function dropTarget(e, pageEl) {
+  const u = unitOf(pageEl.dataset.id);
+  const i = state.pages.findIndex(p => p.id === pageEl.dataset.id);
+  const rect = pageEl.getBoundingClientRect();
+  let frac = (e.clientX - rect.left) / rect.width;
+  if (state.book.readingDirection === "rtl") frac = 1 - frac;
+  const pos = (i - u.start + frac) / (u.end - u.start + 1);
+  return pos < 0.5 ? { unit: u, before: true, index: u.start } : { unit: u, before: false, index: u.end + 1 };
+}
+function clearDropMarks() { document.querySelectorAll(".drop-before,.drop-after").forEach(el => el.classList.remove("drop-before", "drop-after")); }
+
+const gridEl = document.getElementById("grid");
+gridEl.addEventListener("dragstart", e => {
+  const el = e.target.closest(".page[data-id]");
+  if (!el) return;
+  drag = unitOf(el.dataset.id);
+  e.dataTransfer.effectAllowed = "move";
+  e.dataTransfer.setData("text/plain", el.dataset.id);
+  requestAnimationFrame(() => state.pages.slice(drag.start, drag.end + 1).forEach(p =>
+    gridEl.querySelector(`[data-id="${p.id}"]`)?.classList.add("dragging")));
+});
+gridEl.addEventListener("dragover", e => {
+  if (!drag) return;
+  const el = e.target.closest(".page[data-id]");
+  clearDropMarks();
+  if (!el) return;
+  const t = dropTarget(e, el);
+  if (t.unit.gid === drag.gid) return;
+  e.preventDefault();
+  const edge = state.pages[t.before ? t.unit.start : t.unit.end];
+  gridEl.querySelector(`[data-id="${edge.id}"]`).classList.add(t.before ? "drop-before" : "drop-after");
+});
+gridEl.addEventListener("drop", e => {
+  const el = e.target.closest(".page[data-id]");
+  if (!drag || !el) return;
+  e.preventDefault();
+  const t = dropTarget(e, el);
+  if (t.unit.gid !== drag.gid) {
+    snapshot();
+    const moving = state.pages.slice(drag.start, drag.end + 1);
+    const rest = state.pages.filter(p => p.groupId !== drag.gid);
+    const at = t.index > drag.end ? t.index - moving.length : t.index;
+    rest.splice(at, 0, ...moving);
+    state.pages = rest;
+    validateSpreads();
+    const f = state.pages.indexOf(moving[0]) + 1;
+    toast(`已移到第 ${f}–${f + moving.length - 1} 頁`);
+  }
+  drag = null;
+  render();
+});
+gridEl.addEventListener("dragend", () => { drag = null; clearDropMarks(); document.querySelectorAll(".dragging").forEach(el => el.classList.remove("dragging")); });
+
+document.getElementById("undo").onclick = undo;
+document.addEventListener("keydown", e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === "z" && !e.shiftKey && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) { e.preventDefault(); undo(); }
+});
+
+function renderStatus() {
+  const n = state.pages.length, pps = state.book.pagesPerSignature;
+  const sigs = Math.ceil(n / pps), rem = n % pps;
+  document.getElementById("status").innerHTML =
+    `<div class="stats">
+       <div class="stat"><span class="k">內頁</span><span class="n">${n}<span class="u">頁</span></span></div>
+       <div class="stat"><span class="k">總台數</span><span class="n">${rem ? sigs - 1 : sigs}<span class="u">${rem ? `台又 ${rem} 頁` : "台"}</span></span></div>
+     </div>
+     <div class="kv"><span class="k">一台頁數</span>${editable("pps", pps, "頁")}</div>
+     <div class="kv"><span class="k">跨頁</span><span class="v">${state.spreads.length} 組</span></div>
+     <div class="kv"><span class="k">湊台</span><span class="chip ${rem ? "warn" : "ok"}">${rem ? `差 ${pps - rem} 頁` : "剛好湊滿"}</span></div>
+     ${rem ? `<div class="hint" style="margin:4px 0 8px">補 ${pps - rem} 頁湊滿 ${sigs * pps} 頁，或刪 ${rem} 頁變成 ${(sigs - 1) * pps} 頁</div>
+       <button class="btn block" id="fill" style="margin-bottom:6px">在書末補 ${pps - rem} 頁</button>` : `<div style="height:10px"></div>`}
+     <button class="btn block" id="addSig">加一台（${pps} 頁）</button>
+     <div class="kv" style="margin-top:12px"><span class="k">版本</span><span class="v">v${state.meta.version}${state.meta.basedOn ? `（改自 ${esc(state.meta.basedOn)}）` : ""}</span></div>
+     <button class="btn block" id="reset" style="margin-top:6px">開新的空白書冊</button>`;
+  bindStatusButtons(pps, rem);
+}
+
+function bindStatusButtons(pps, rem) {
+  document.getElementById("fill")?.addEventListener("click", () => addPage(state.pages.length - 1, undefined, pps - rem));
+  document.getElementById("addSig").onclick = () => addPage(state.pages.length - 1, undefined, pps);
+  document.getElementById("reset").onclick = () => {
+    if (!confirm("要清空目前的內容，重新開一本空白書冊嗎？建議先匯出備份。")) return;
+    snapshot();
+    Object.assign(state, structuredClone(DATA), { meta: { version: 1, basedOn: null }, selected: null });
+    render();
+    toast("已開新的空白書冊，可按 ⌘Z 復原");
+  };
+}
+
+// ---------- 自動存檔（存在這台電腦的瀏覽器裡） ----------
+const docOf = () => ({ version: 1, book: state.book, extras: state.extras, groups: state.groups, pages: state.pages, spreads: state.spreads, meta: state.meta });
+let saveTimer, savedTime = null;
+function autoSave() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    try {
+      localStorage.setItem(DOC_KEY, JSON.stringify(docOf()));
+      savedTime = new Date();
+      showSavedAt();
+    } catch {
+      document.getElementById("savedAt").textContent = "⚠ 這台電腦的瀏覽器空間不足，沒有存檔";
+    }
+  }, 400);
+}
+function showSavedAt() {
+  if (!savedTime) return;
+  const t = savedTime.toLocaleTimeString("zh-TW", { hour: "2-digit", minute: "2-digit" });
+  document.getElementById("savedAt").textContent = `已存檔 ${t}`;
+}
+
+// ---------- 匯出／匯入落版檔 ----------
+function stamp(d = new Date()) {
+  const p = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}`;
+}
+function exportDoc() {
+  state.meta.exportedAt = new Date().toISOString();
+  const name = `${state.book.title || "未命名書冊"}_v${state.meta.version}_${stamp()}.imposition.json`;
+  const blob = new Blob([JSON.stringify(docOf(), null, 1)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  // 匯出後版本號往上加，下一份才不會撞號
+  state.meta.version += 1;
+  state.meta.basedOn = `v${state.meta.version - 1}`;
+  render();
+  toast(`已匯出 ${name}`);
+}
+function importDoc(file) {
+  const fr = new FileReader();
+  fr.onload = () => {
+    let d;
+    try { d = JSON.parse(fr.result); } catch { return toast("這個檔案不是落版檔，讀不出來"); }
+    if (!d || !Array.isArray(d.pages) || !Array.isArray(d.groups) || !d.book) return toast("這個檔案不是落版檔，缺少必要資料");
+    if (!confirm(`要用「${file.name}」取代目前的內容嗎？目前的修改會被蓋掉，建議先匯出備份。`)) return;
+    snapshot();
+    Object.assign(state, {
+      book: d.book, extras: d.extras || state.extras, groups: d.groups, pages: d.pages,
+      spreads: d.spreads || [], meta: d.meta || { version: 1, basedOn: null }, selected: null,
+    });
+    state.meta.basedOn = file.name;
+    validateSpreads();
+    render();
+    toast(`已匯入 ${d.pages.length} 頁`);
+  };
+  fr.readAsText(file);
+}
+
+// ---------- 輸出 PDF（用瀏覽器的「列印 → 另存為 PDF」） ----------
+function printPdf() {
+  const b = state.book, n = state.pages.length, pps = b.pagesPerSignature;
+  const sigs = Math.ceil(n / pps), rem = n % pps;
+  const now = new Date();
+  const when = now.toLocaleString("zh-TW", { year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" });
+  const chNo = chapterNumbers(), groups = groupById();
+
+  const warns = [];
+  if (rem) warns.push(`頁數未湊滿整台：目前 ${n} 頁，需補 ${pps - rem} 頁湊滿 ${sigs * pps} 頁，或刪 ${rem} 頁變成 ${(sigs - 1) * pps} 頁`);
+  if (b.binding === "saddle" && n % 4) warns.push(`騎馬釘的頁數必須是 4 的倍數，目前 ${n} 頁`);
+  if (b.binding === "saddle" && n > 64) warns.push(`騎馬釘 ${n} 頁偏多，建議改用其他裝訂`);
+  if (b.binding === "wire" && state.spreads.length) warns.push("線圈裝會把跨頁切斷，目前書裡有跨頁");
+  for (const [l, r2] of state.spreads) {
+    const li = state.pages.findIndex(p => p.id === l), ri = state.pages.findIndex(p => p.id === r2);
+    if (Math.floor(li / pps) !== Math.floor(ri / pps)) warns.push(`第 ${li + 1}–${ri + 1} 頁的跨頁跨在兩台之間，印刷對位風險較高`);
+  }
+
+  const rows = state.pages.map((p, i) => {
+    const g = groups[p.groupId];
+    return `<tr><td class="num">${i + 1}</td><td class="num">${Math.floor(i / pps) + 1}</td>
+      <td class="sec-col">${chNo[g.id] ? `Ch${chNo[g.id]} ` : ""}${esc(g.name)}</td>
+      <td>${esc(p.content).replace(/\n/g, "<br>")}</td></tr>`;
+  }).join("");
+
+  const box = document.getElementById("print");
+  box.innerHTML = `
+    <div class="p-head">
+      <h1>${esc(b.title)}　落版單</h1>
+      <div class="p-spec">
+        <span>版本 v${state.meta.version}</span><span>輸出時間 ${when}</span>
+        <span>開本 ${b.trimWidth} × ${b.trimHeight}mm</span>
+        <span>${b.readingDirection === "ltr" ? "左翻" : "右翻"}</span>
+        <span>裝訂 ${BINDINGS[b.binding].name}</span>
+        <span>內側禁區 單邊 ${gutterOf()}mm</span>
+        <span>內頁 ${n} 頁</span>
+        <span>一台 ${pps} 頁・共 ${rem ? `${sigs - 1} 台又 ${rem} 頁` : `${sigs} 台`}</span>
+        <span>跨頁 ${state.spreads.length} 組</span>
+      </div>
+    </div>
+    <div class="p-sec">跨頁總覽</div>
+    <div id="printGrid"></div>
+    <div class="p-break"></div>
+    <div class="p-sec">提醒（${warns.length}）</div>
+    ${warns.length ? `<ul class="p-warn">${warns.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : `<div class="p-warn">沒有提醒</div>`}
+    <div class="p-sec">頁面內容一覽</div>
+    <table class="p-list"><thead><tr><th class="num">頁</th><th class="num">台</th><th class="sec-col">區塊</th><th>內容</th></tr></thead><tbody>${rows}</tbody></table>
+    <div class="p-foot"><span>${esc(b.title)}　v${state.meta.version}</span><span>${when}</span></div>`;
+
+  // 複製畫面上的落版區，換成列印用的尺寸（以 mm 為單位，比例才會準）
+  const clone = document.getElementById("grid").cloneNode(true);
+  clone.querySelectorAll(".dragging,.drop-before,.drop-after").forEach(el => el.classList.remove("dragging", "drop-before", "drop-after"));
+  const PW = 52; // 每頁列印寬度 mm
+  const k = PW / b.trimWidth;
+  clone.style.setProperty("--pw", PW + "mm");
+  clone.style.setProperty("--ph", (b.trimHeight * k).toFixed(1) + "mm");
+  clone.querySelectorAll(".gutter").forEach(el => { el.style.width = (gutterOf() * k).toFixed(2) + "mm"; });
+  clone.querySelectorAll(".spine-zone").forEach(el => { el.style.width = (gutterOf() * k * 2).toFixed(2) + "mm"; });
+  box.querySelector("#printGrid").appendChild(clone);
+
+  window.print();
+  setTimeout(() => { box.innerHTML = ""; }, 1000);
+}
+
+function esc(s) { return String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+let tt;
+function toast(msg) { const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("show"), 2600); }
+
+// 綁定設定面板
+const bindSel = document.getElementById("binding");
+for (const [k, v] of Object.entries(BINDINGS)) bindSel.add(new Option(v.name, k));
+bindSel.onchange = () => {
+  state.book.binding = bindSel.value;
+  if (bindSel.value === "saddle" && state.book.pagesPerSignature % 4 !== 0) {
+    state.book.pagesPerSignature = 4;
+    toast("騎馬釘的一台頁數已改為 4 頁");
+  }
+  render();
+};
+document.getElementById("dirSeg").onclick = e => { const v = e.target.dataset?.v; if (v) { state.book.readingDirection = v; render(); } };
+document.getElementById("extras").onchange = e => { state.extras.show = e.target.checked; render(); };
+document.getElementById("zoom").oninput = e => { state.zoom = Number(e.target.value); store.set("lb.zoom", state.zoom); render(); };
+
+document.getElementById("btnExport").onclick = exportDoc;
+document.getElementById("btnSample").onclick = () => {
+  if (!confirm("要載入範例書冊嗎？目前的內容會被蓋掉，可按 ⌘Z 復原。")) return;
+  snapshot();
+  Object.assign(state, structuredClone(SAMPLE), { selected: null });
+  render();
+  toast("已載入範例，可以直接拖拉試用");
+};
+document.getElementById("btnImport").onclick = () => document.getElementById("fileInput").click();
+document.getElementById("fileInput").onchange = e => { if (e.target.files[0]) importDoc(e.target.files[0]); e.target.value = ""; };
+document.getElementById("btnPdf").onclick = () => {
+  toast("列印視窗請選 A3 橫式；想印出底色請勾選「背景圖形」");
+  setTimeout(printPdf, 400);
+};
+
+render();
+</script>
+</body>
+</html>
