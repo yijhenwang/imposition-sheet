@@ -45,6 +45,7 @@ kbd { font: 11px/1 var(--font); border: 1px solid var(--border); border-radius: 
 .brand { display: flex; align-items: center; gap: 11px; }
 .mark { width: 30px; height: 30px; display: block; flex: none; }
 .topbar h1 { font-size: 16px; font-weight: 600; margin: 0; letter-spacing: -.01em; }
+.topbar h1 .editable { font-size: inherit; font-weight: inherit; color: inherit; padding: 2px 7px; margin-inline-start: -7px; }
 .topbar .sub { color: var(--muted); font-size: 12px; }
 
 /* 標籤—數值列 */
@@ -128,6 +129,11 @@ input[type="range"] { accent-color: var(--accent); }
 .spine-zone span { writing-mode: vertical-rl; font-size: 10px; color: var(--danger); background: var(--page); padding: 4px 1px; font-family: var(--font); }
 .spread-tag { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); font-size: 11px; color: var(--danger); white-space: nowrap; }
 
+/* 落版區末尾的加一台 */
+.add-sig { width: var(--pw); height: var(--ph); border: 1px dashed var(--border); border-radius: var(--page-radius); background: transparent; color: var(--muted); font-family: inherit; font-size: 11.5px; line-height: 1.45; text-align: center; padding: 8px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; }
+.add-sig .plus { font-size: 21px; line-height: 1; }
+.add-sig:hover { border-color: var(--ring); border-style: solid; background: var(--soft); color: var(--fg); }
+
 
 .btn.danger { color: var(--danger); border-color: color-mix(in srgb, var(--danger) 35%, var(--border)); }
 .btn.danger:hover { background: color-mix(in srgb, var(--danger) 8%, transparent); }
@@ -140,6 +146,7 @@ input[type="range"] { accent-color: var(--accent); }
 .editable:hover { text-decoration: none; }
 .editable .unit { color: var(--muted); font-size: 12px; }
 .editable-input { width: 84px !important; text-align: right; padding: 3px 8px !important; font-variant-numeric: tabular-nums; }
+.editable-input.text { width: 220px !important; text-align: start; font-size: 15px; font-weight: 600; }
 
 /* 拖曳 */
 .page[draggable="true"] { cursor: grab; }
@@ -198,7 +205,7 @@ input[type="range"] { accent-color: var(--accent); }
     <div class="brand">
       <img class="mark" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' role='img' aria-label='%E8%90%BD%E7%89%88%E5%96%AE'%3E%3Crect width='64' height='64' fill='%2316181d'/%3E%3Cpath d='M20 16H36L44 24V48H20Z' fill='%23fff'/%3E%3Cpath d='M36 16V24H44Z' fill='%23a5b4fc'/%3E%3Cpath d='M12 16H16M20 8V12M48 16H52M44 8V12M12 48H16M20 52V56M48 48H52M44 52V56' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E" alt="" width="30" height="30">
       <div>
-        <h1 id="title">落版單</h1>
+        <h1 id="title"></h1>
       </div>
     </div>
     <div class="spacer"></div>
@@ -332,7 +339,8 @@ function validateSpreads() {
 
 function render() {
   const b = state.book;
-  document.getElementById("title").textContent = b.title;
+  document.getElementById("title").innerHTML =
+    `<button class="editable" data-edit="title" title="點一下改書名">${esc(b.title || "未命名書冊")}</button>`;
   document.getElementById("trim").innerHTML =
     `${editable("trimW", b.trimWidth, "")}<span class="hint">×</span>${editable("trimH", b.trimHeight, "mm")}`;
   for (const btn of document.querySelectorAll("#dirSeg button")) btn.setAttribute("aria-pressed", btn.dataset.v === b.readingDirection);
@@ -412,6 +420,13 @@ function render() {
     }
     grid.appendChild(el);
   }
+  // 書末的加一台，跟側邊那顆同一個功能
+  const add = document.createElement("button");
+  add.className = "add-sig";
+  add.title = `在書末加 ${pps} 頁（一整台）`;
+  add.innerHTML = `<span class="plus">＋</span><span>加一台<br>（${pps} 頁）</span>`;
+  add.onclick = () => addPage(state.pages.length - 1, undefined, pps);
+  grid.appendChild(add);
   renderDetail(chNo);
   renderStatus();
   showSavedAt();
@@ -526,6 +541,13 @@ function editable(key, value, unit) {
   return `<button class="editable" data-edit="${key}" title="點一下修改">${value}<span class="unit">${unit}</span></button>`;
 }
 const EDITORS = {
+  title: { text: true, get: () => state.book.title || "", set(v) {
+    v = v.trim();
+    if (v === state.book.title) return;
+    snapshot();
+    state.book.title = v || "未命名書冊";
+    toast(`書名改為「${state.book.title}」`);
+  } },
   pps: { min: 2, step: 2, set(v) {
     v = Math.max(2, Math.round(v / 2) * 2);
     if (v === state.book.pagesPerSignature) return;
@@ -556,16 +578,26 @@ document.addEventListener("click", e => {
   if (!btn) return;
   const ed = EDITORS[btn.dataset.edit];
   const input = document.createElement("input");
-  input.type = "number"; input.min = ed.min; input.step = ed.step;
-  input.value = parseFloat(btn.textContent);
-  input.className = "editable-input";
+  if (ed.text) {
+    input.type = "text"; input.maxLength = 60; input.value = ed.get();
+    input.className = "editable-input text";
+  } else {
+    input.type = "number"; input.min = ed.min; input.step = ed.step;
+    input.value = parseFloat(btn.textContent);
+    input.className = "editable-input";
+  }
   btn.replaceWith(input);
   input.focus(); input.select();
   let done = false;
   const finish = commit => {
     if (done) return; done = true;
-    const v = Number(input.value);
-    if (commit && input.value !== "" && !Number.isNaN(v)) ed.set(v);
+    if (commit) {
+      if (ed.text) ed.set(input.value);
+      else {
+        const v = Number(input.value);
+        if (input.value !== "" && !Number.isNaN(v)) ed.set(v);
+      }
+    }
     render();
   };
   input.addEventListener("keydown", k => { if (k.key === "Enter") finish(true); if (k.key === "Escape") finish(false); });
@@ -630,7 +662,7 @@ gridEl.addEventListener("dragstart", e => {
   drag = unitOf(el.dataset.id);
   e.dataTransfer.effectAllowed = "move";
   e.dataTransfer.setData("text/plain", el.dataset.id);
-  requestAnimationFrame(() => state.pages.slice(drag.start, drag.end + 1).forEach(p =>
+  requestAnimationFrame(() => drag && state.pages.slice(drag.start, drag.end + 1).forEach(p =>
     gridEl.querySelector(`[data-id="${p.id}"]`)?.classList.add("dragging")));
 });
 gridEl.addEventListener("dragover", e => {
@@ -814,6 +846,7 @@ function printPdf() {
   // 複製畫面上的落版區，換成列印用的尺寸（以 mm 為單位，比例才會準）
   const clone = document.getElementById("grid").cloneNode(true);
   clone.querySelectorAll(".dragging,.drop-before,.drop-after").forEach(el => el.classList.remove("dragging", "drop-before", "drop-after"));
+  clone.querySelectorAll(".add-sig").forEach(el => el.remove()); // 加一台是操作按鈕，不印出來
   const PW = 52; // 每頁列印寬度 mm
   const k = PW / b.trimWidth;
   clone.style.setProperty("--pw", PW + "mm");
