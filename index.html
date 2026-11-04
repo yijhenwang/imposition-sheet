@@ -33,7 +33,8 @@ kbd { font: 11px/1 var(--font); border: 1px solid var(--border); border-radius: 
 /* 卡片式版面 */
 .app { height: 100%; padding: 12px; display: grid; grid-template-rows: auto 1fr; gap: 12px; }
 .card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; min-height: 0; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow); }
-.main { display: grid; grid-template-columns: 264px 1fr 324px; gap: 12px; min-height: 0; }
+.main { display: grid; grid-template-columns: 264px 1fr 324px; gap: 12px; min-height: 0; position: relative; }
+.card-head .drawer-only { display: none; }
 .card-head { display: flex; align-items: center; gap: 8px; padding: 14px 18px 10px; }
 .card-head.sep { border-top: 1px solid var(--border); margin-top: 4px; }
 .card-head h2 { font-size: 11px; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
@@ -159,6 +160,44 @@ input[type="range"] { accent-color: var(--accent); }
 .page { overflow: visible; }
 .page > .cnt, .page > .sec { overflow: hidden; }
 
+/* 視窗變窄：落版區佔滿，書冊設定和頁面收到右側抽屜 */
+@media (max-width: 1100px) {
+  .main { grid-template-columns: 1fr; }
+  .board { grid-column: 1; }
+  .card-head .drawer-only { display: inline-flex; }
+
+  .nav, .side {
+    display: none;
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: min(340px, 100%);
+    z-index: 30;
+    box-shadow: -10px 0 30px rgba(28,25,23,.1), var(--shadow);
+    animation: drawer-in .18s ease-out;
+  }
+  body.drawer-nav .nav, body.drawer-side .side { display: flex; }
+  .nav .card-head .hint, .side .card-head .hint { display: none; }
+  /* 抽屜是浮在落版區上面，不把落版區擠窄，落版排列才不會跟著跳動 */
+
+  .topbar { flex-wrap: wrap; row-gap: 8px; padding: 10px 14px; }
+  .topbar .btn { padding: 5px 10px; }
+  .topbar .btn kbd { display: none; }
+  :root { --gap: 20px 14px; }
+}
+@keyframes drawer-in { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 620px) {
+  .app { padding: 8px; gap: 8px; }
+  .nav, .side { width: 100%; }
+  body.drawer-nav .board, body.drawer-side .board { margin-inline-end: 0; }
+  .topbar { gap: 8px; }
+  .topbar .brand { gap: 8px; }
+  .mark { width: 24px; height: 24px; }
+  .topbar h1 { font-size: 14.5px; }
+  .card-head { padding: 12px 14px 8px; }
+  .card-body { padding: 2px 14px 14px; }
+  .card-scroll { padding: 2px 14px 20px; }
+}
+
 /* 輸出 PDF（瀏覽器列印） */
 #print { display: none; }
 @media print {
@@ -220,7 +259,11 @@ input[type="range"] { accent-color: var(--accent); }
 
   <div class="main">
     <aside class="card nav" aria-label="書冊設定（全書共用）">
-      <div class="card-head"><h2>書冊設定</h2><span class="hint">全書共用</span></div>
+      <div class="card-head"><h2>書冊設定</h2><span class="hint">全書共用</span>
+        <span class="spacer"></span>
+        <button class="btn drawer-only" data-drawer="side">頁面</button>
+        <button class="btn drawer-only" data-drawer="" title="收起">✕</button>
+      </div>
       <div class="card-body">
         <div class="kv"><span class="k">開本（寬 × 高）</span><span id="trim"></span></div>
         <div class="kv"><span class="k">翻向</span>
@@ -241,12 +284,18 @@ input[type="range"] { accent-color: var(--accent); }
       <div class="card-head">
         <h2 id="boardTitle">落版</h2>
         <span class="spacer"></span>
+        <button class="btn drawer-only" data-drawer="nav">書冊設定</button>
+        <button class="btn drawer-only" data-drawer="side">頁面</button>
       </div>
       <div class="card-scroll"><div class="grid" id="grid"></div></div>
     </main>
 
     <aside class="card side">
-      <div class="card-head"><h2>頁面</h2><span class="hint">只影響選取的頁面</span></div>
+      <div class="card-head"><h2>頁面</h2><span class="hint">只影響選取的頁面</span>
+        <span class="spacer"></span>
+        <button class="btn drawer-only" data-drawer="nav">書冊設定</button>
+        <button class="btn drawer-only" data-drawer="" title="收起">✕</button>
+      </div>
       <div class="card-scroll"><section id="detail"></section></div>
     </aside>
   </div>
@@ -396,7 +445,7 @@ function render() {
         d.innerHTML = `<div class="folio"><span>${it.folio}</span>${chip}</div>
           <div class="sec${cont ? " cont" : ""}">${no}${esc(g.name)}</div>
           <div class="cnt">${esc(p.content)}</div>`;
-        d.onclick = () => { state.selected = p.id; render(); };
+        d.onclick = () => { state.selected = p.id; if (narrow()) setDrawer("side"); render(); };
       }
       const gut = document.createElement("div");
       gut.className = "gutter";
@@ -533,6 +582,18 @@ function detachPage(pid) {
   } else toast("已移出群組，這一頁可以單獨拖曳");
   render();
 }
+
+// ---------- 窄視窗的右側抽屜 ----------
+// 寬螢幕維持三欄；視窗變窄時落版區佔滿，書冊設定和頁面改成收在右側
+const narrow = () => window.matchMedia("(max-width: 1100px)").matches;
+function setDrawer(which) {
+  document.body.classList.toggle("drawer-nav", which === "nav");
+  document.body.classList.toggle("drawer-side", which === "side");
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-drawer]");
+  if (b) setDrawer(b.dataset.drawer || null);
+});
 
 // ---------- 點擊後輸入數字 ----------
 // 同一個資訊只出現一次；能修改的就直接點數字改
